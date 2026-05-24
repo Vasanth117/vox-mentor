@@ -1,0 +1,47 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+*.log
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Secrets / local env
+.env
+backend/.env
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Frontend / Node
+frontend/node_modules/
+frontend/dist/
+frontend/public/monaco/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs / temp
+dist/
+build/
+tmp/
+temp/
+
+# Notebooks
+.ipynb_checkpoints/

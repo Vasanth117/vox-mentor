@@ -1,0 +1,65 @@
+services:
+  - type: web
+    name: voxmentor-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: MONGO_URI
+        sync: false
+      - key: DB_NAME
+        value: voxmentor
+      - key: SECRET_KEY
+        sync: false
+      - key: AI_PROVIDER
+        value: openrouter
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_BASE_URL
+        value: https://openrouter.ai/api/v1
+      - key: OPENROUTER_SITE_URL
+        sync: false
+      - key: OPENROUTER_APP_NAME
+        value: VoxMentor
+      - key: MODEL_CODE
+        value: qwen/qwen3-coder:free
+      - key: MODEL_TUTOR
+        value: meta-llama/llama-3.3-70b-instruct:free
+      - key: MODEL_CHAT
+        value: qwen/qwen3-next-80b-a3b-instruct:free
+      - key: MODEL_ROUTER
+        value: nvidia/nemotron-nano-9b-v2:free
+      - key: MODEL_CODE_TEMPERATURE
+        value: "0.2"
+      - key: MODEL_CODE_TOP_P
+        value: "0.9"
+      - key: MODEL_CODE_MAX_TOKENS
+        value: "1200"
+      - key: MODEL_TUTOR_TEMPERATURE
+        value: "0.6"
+      - key: MODEL_TUTOR_TOP_P
+        value: "0.9"
+      - key: MODEL_TUTOR_MAX_TOKENS
+        value: "1500"
+      - key: MODEL_CHAT_TEMPERATURE
+        value: "0.5"
+      - key: MODEL_CHAT_TOP_P
+        value: "0.9"
+      - key: MODEL_CHAT_MAX_TOKENS
+        value: "1000"
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_BASE_URL
+        value: https://api.elevenlabs.io
+      - key: ELEVENLABS_TTS_VOICE_ID
+        value: EXAVITQu4vr4xnSDxMaL
+      - key: ELEVENLABS_TTS_MODEL_ID
+        value: eleven_multilingual_v2
+      - key: ELEVENLABS_STT_MODEL_ID
+        value: scribe_v1
+      # Set CORS_ORIGINS after Vercel deploy — add your Vercel URL here
+      - key: CORS_ORIGINS
+        sync: false
